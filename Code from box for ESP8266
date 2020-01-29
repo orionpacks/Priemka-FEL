@@ -1,0 +1,10 @@
+import machine
+import time
+o = machine.Pin(5, machine.Pin.OUT)  #D1 out
+i = machine.Pin(4, machine.Pin.IN)        #D2 in
+
+while 1:
+    if i.value():
+        o.value(1)
+        time.sleep(0.1)
+        o.value(0)
