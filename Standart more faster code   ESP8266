@@ -1,0 +1,12 @@
+import machine
+import time
+
+o = machine.Pin(5, machine.Pin.OUT)  #D1 out
+i = machine.Pin(4, machine.Pin.IN)       #D2 in
+
+def f(_):
+    o.value(1)
+    time.sleep(0.1)
+    o.value(0)
+
+i.irq(trigger=machine.Pin.IRQ_RISING, handler=f)
